@@ -1,0 +1,7 @@
+main.columns-container{
+   width: 100%;
+   min-height: 80dvh;
+   padding: 2rem .5rem;
+   display: flex;
+   gap: 2rem;
+}

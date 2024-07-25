@@ -1,7 +1,7 @@
 import React from "react";
 
 function TaskItem(props) {
-  const { status, taskStatus, title, description, tr, ti } = props;
+  const { id,status, taskStatus, title, description, tr, ti, deleteTask } = props;
   return (
    status === taskStatus  ?(
     <article className="p-4 rounded border border-blue-300 flex flex-col gap-2">
@@ -11,6 +11,7 @@ function TaskItem(props) {
          <p>TR : {tr}</p>
          <p>TI : {ti}</p>
       </div>
+      <button type='button' onClick={()=>deleteTask(id)}>DELETE</button>
     </article>)
     : null 
   );

@@ -1,14 +1,17 @@
 import Header from "./layout/header/Header";
 import Footer from "./layout/footer/Footer";
 import Tasks from "./tasks/Tasks";
+import ApplicationContextProvider from "./context/ApplicationContextProvider";
 
 function App() {
   return (
-    <>
-      <Header />
+    <ApplicationContextProvider>
+      <>
+        <Header />
         <Tasks />
-      <Footer />
-    </>
+        <Footer />
+      </>
+    </ApplicationContextProvider>
   );
 }
 

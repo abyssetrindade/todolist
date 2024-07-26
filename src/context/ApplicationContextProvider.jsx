@@ -1,33 +1,24 @@
-import React, { useState } from "react";
+import React, { useReducer, useState } from "react";
 import { createContext } from "react";
+import { ApplicationReducer } from "./ApplicationReducer";
 
 
 export const ApplicationContext = createContext({});
 
 
 function ApplicationContextProvider({ children }) {
-    const [state, setState] = useState({ tasks: [], users: [], basket : [] });
+    const [state, dispatch] = useReducer(ApplicationReducer, {tasks: [], basket: []});
 
-    const addToBasket = (item) => {
-        setState((currentState) => {
-            const newState = { ...currentState, basket: [...currentState.basket, item] }
-            return newState;
-        })
+    const addToBasket = (data) => {
+        dispatch({ type: "ADD_TO_BASKET", data })
     }
 
-
-    const updateTasks = (tasks) => {
-        setState((currentState) => {
-            const newState = { ...currentState, tasks }
-            return newState;
-        })
+    const updateTasks = (task) => {
+        dispatch({ type: "SET_TASKS", data: task })
     }
 
     const addUsers = (user) => {
-        setState((currentState) => {
-            const newState = { ...currentState, users: [...currentState.users, user] }
-            return newState;
-        })
+        dispatch({ type: "ADD_USER", data: user })
     }
 
     return (

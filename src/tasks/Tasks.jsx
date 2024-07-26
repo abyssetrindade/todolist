@@ -1,17 +1,17 @@
 import React, { useContext, useEffect, useState } from 'react'
-import { STATUS } from '../utils/data'
+import { STATUS, TASKS } from '../utils/data'
 import TaskColumn from './taskColumn/TaskColumn'
 import { search, remove } from '../services/scrud';
 import { ApplicationContext } from '../context/ApplicationContextProvider';
 
 function Tasks() {
 
-  const { state: { tasks }, updateTasks } = useContext(ApplicationContext);
-
-  const getTasks = async () => {
-    const response = await search({ path: "tasks" });
-    const data = await response.json();
-    updateTasks(data);
+  const { state: {tasks}, updateTasks } = useContext(ApplicationContext);
+  
+ const getTasks = async () => {
+    // const response = await search({ path: "tasks" });
+    // const data = await response.json();
+    updateTasks(TASKS);
   };
 
   useEffect(() => {

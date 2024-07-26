@@ -28,7 +28,7 @@ jobs:
         with:
           context: .
           push: true
-          tags: mathieutrindade/todolist:${{ env.GITHUB_SHA }}
+          tags: abyssetrindade/todolist:${{ env.GITHUB_SHA }}
       - name: Connect to server
         run: echo "Connect to server"
       - name: Run container
